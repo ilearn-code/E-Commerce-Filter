@@ -22,7 +22,7 @@
 
 
 
-			<div class="products">
+			<!-- <div class="products"> -->
 
 		<?php
         include "db_conn.php";
@@ -34,9 +34,9 @@
         $product_name= $row['product_name'];
 		?>
        <div class="product_container <?php echo $product_name?> ">
-      
-      <img src="<?php echo $img_path ?>" height="400px" width="400px" >
+        <img src="<?php echo $img_path ?>" height="400px" width="400px" >
         <h2 class="PNAME"><?php echo $product_name?></h2>
+		<span class="price">$19.99</span>
      </div>
 
 		<?php
@@ -44,7 +44,7 @@
 ?>
 
 
-			</div>
+			<!-- </div> -->
 		
 	
 	</body>
