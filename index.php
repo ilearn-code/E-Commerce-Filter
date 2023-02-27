@@ -32,11 +32,12 @@
         while($row = mysqli_fetch_array($result)) {
         $img_path = $row['img_path'];
         $product_name= $row['product_name'];
+		$product_price=$row['price'];
 		?>
        <div class="product_container <?php echo $product_name?> ">
-        <img src="<?php echo $img_path ?>" height="400px" width="400px" >
+        <img src="<?php echo $img_path ?>" >
         <h2 class="PNAME"><?php echo $product_name?></h2>
-		<span class="price">$19.99</span>
+		<span class="price">Rs.<?php echo $product_price ?></span>
      </div>
 
 		<?php
