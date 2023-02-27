@@ -1,0 +1,32 @@
+
+.products
+{  
+    height: auto;
+    background-color: aqua;
+    padding-left: 80px;
+}
+
+
+.product_container
+{
+    display: inline-block;
+    width: 300px;
+    margin-left: 100px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    vertical-align: top;
+    text-align: center;
+    background-color: bisque;
+}
+.product_conatiner:nth-child(3n) {
+    margin-right: 0;
+    color: yellow;
+  }
+
+
+
+.product_container img
+{
+    width: 300px;
+}
