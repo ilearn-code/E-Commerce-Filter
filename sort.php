@@ -13,7 +13,7 @@ if ($sortBy == 'asc') {
   $orderBy = 'price';
 } else {
   $sortOrder = 'ASC'; // default sorting order
-  $orderBy = 'id'; // default sorting column
+  $orderBy = 'product_id'; // default sorting column
 }
 
 $sql = "SELECT * FROM product_table ORDER BY $orderBy $sortOrder";

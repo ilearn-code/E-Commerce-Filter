@@ -26,12 +26,12 @@
   <option value="desc" name="desc">Descending</option>
 </select> -->
 
-<form method="POST" action="sort.php" >
+<form >
  
   <select id="sort-by" name="sort">
-    <option value="default" name="default">Default</option>
-  <option value="asc" name="asc">Ascending</option>
-  <option value="desc" name="desc">Descending</option>
+    <option value="default">Default</option>
+  <option value="asc" >Ascending</option>
+  <option value="desc" >Descending</option>
   </select>
   <input type="submit" value="Sort">
 </form>
@@ -48,26 +48,26 @@
 	</body>
 
 	<script>
-// create a new XHR object
-// var xhr = new XMLHttpRequest();
+create a new XHR object
+var xhr = new XMLHttpRequest();
 
-// // define the function to be executed when the response is received
-// xhr.onreadystatechange = function() {
-//   if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-//     // replace the content of the product table with the sorted data
-//     document.getElementById("product-table").innerHTML = xhr.responseText;
-//   }
-// };
+// define the function to be executed when the response is received
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    // replace the content of the product table with the sorted data
+    document.getElementById("product_container <?php echo $product_name?>z[+").innerHTML = xhr.responseText;
+  }
+};
 
-// // define the sorting function and the sorting order
-// function sortProducts(sortBy, sortOrder) {
-//   // create the request URL with the sorting parameters
-//   var url = "sort.php?sort_by=" + sortBy + "&sort_order=" + sortOrder;
+// define the sorting function and the sorting order
+function sortProducts(sortBy, sortOrder) {
+  // create the request URL with the sorting parameters
+  var url = "sort.php?sort_by=" + sortBy + "&sort_order=" + sortOrder;
 
-//   // send the request
-//   xhr.open("GET", url, true);
-//   xhr.send();
-// }
+  // send the request
+  xhr.open("GET", url, true);
+  xhr.send();
+}
 
 
 	</script>
