@@ -19,35 +19,57 @@
 					<input type="submit" value="Upload" name="btn_upload" class="btn" />
 				</div>
 			</form>
+ <div class="filters" >
+ <!-- <select id="sort-by" name="sort">
+  <option value="default" name="default">Default</option>
+  <option value="asc" name="asc">Ascending</option>
+  <option value="desc" name="desc">Descending</option>
+</select> -->
 
+<form method="POST" action="sort.php" >
+ 
+  <select id="sort-by" name="sort">
+    <option value="default" name="default">Default</option>
+  <option value="asc" name="asc">Ascending</option>
+  <option value="desc" name="desc">Descending</option>
+  </select>
+  <input type="submit" value="Sort">
+</form>
 
+ </div>
 
-			<!-- <div class="products"> -->
+			<div class="productss" id="product-table">
 
-		<?php
-        include "db_conn.php";
+		<?php include "sort.php" ?>
 
-        $result = mysqli_query($conn, "SELECT * FROM product_table");
-
-        while($row = mysqli_fetch_array($result)) {
-        $img_path = $row['img_path'];
-        $product_name= $row['product_name'];
-		$product_price=$row['price'];
-		?>
-       <div class="product_container <?php echo $product_name?> ">
-        <img src="<?php echo $img_path ?>" >
-        <h2 class="PNAME"><?php echo $product_name?></h2>
-		<span class="price">Rs.<?php echo $product_price ?></span>
-     </div>
-
-		<?php
-    }
-?>
-
-
-			<!-- </div> -->
+			</div>
 		
 	
 	</body>
+
+	<script>
+// create a new XHR object
+// var xhr = new XMLHttpRequest();
+
+// // define the function to be executed when the response is received
+// xhr.onreadystatechange = function() {
+//   if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+//     // replace the content of the product table with the sorted data
+//     document.getElementById("product-table").innerHTML = xhr.responseText;
+//   }
+// };
+
+// // define the sorting function and the sorting order
+// function sortProducts(sortBy, sortOrder) {
+//   // create the request URL with the sorting parameters
+//   var url = "sort.php?sort_by=" + sortBy + "&sort_order=" + sortOrder;
+
+//   // send the request
+//   xhr.open("GET", url, true);
+//   xhr.send();
+// }
+
+
+	</script>
 	</html>
 	
