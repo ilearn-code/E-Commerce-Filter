@@ -2,16 +2,18 @@
 require "db_conn.php";
 
    
-
-$sortBy = $_GET['sort'];
-
+if(isset($_GET['sort']))
+{
+  $sortBy = $_GET['sort'];
 if ($sortBy == 'asc') {
   $sortOrder = 'ASC';
   $orderBy = 'price';
-} else if ($sortBy == 'desc') {
+} else  {
   $sortOrder = 'DESC';
   $orderBy = 'price';
+}
 } else {
+
   $sortOrder = 'ASC'; // default sorting order
   $orderBy = 'product_id'; // default sorting column
 }
