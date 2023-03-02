@@ -5,7 +5,30 @@
 	<meta name="viewport" content="width=device-width, intial-scale=1.0"/>
 	<link rel="stylesheet" href="css\style.css">
 	<title>Grocery product</title>
-	
+	<script>
+
+function sortProducts() {
+
+  var sortBy = document.getElementById("sort_by").value;
+  var sortbyprice=document.getElementById("sort_price").value;
+
+  var xhr = new XMLHttpRequest();
+
+ 
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("product-table").innerHTML = this.responseText;
+    }
+  };
+
+  xhr.open("GET", "sort.php?sort="+sortBy+"&sortprice="+sortbyprice, true);
+
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.send();
+}
+
+</script>
 	</head>
 
 	<body>
@@ -25,20 +48,19 @@
         <div class="filters" >
 
  
-  <select id="sort-by" name="sort" onchange="sortProducts()">
+  <select id="sort_by" name="sort" onchange="sortProducts()">
   <option value="default">Default</option>
   <option value="asc" >Price( Low to High)</option>
   <option value="desc" >Price(High to Low)</option>
   </select>
 
-  <select id="sort-price" name="sortprice" onchange="sortProducts()">
-  
-  <option value="0-10">0-10</option>
+  <select id="sort_price" name="sortprice" onchange="sortProducts()">
+  <option value="1">0-10</option>
   <option value="10-20">10-20</option>
   <option value="20-30">20-30</option>
   <option value="30-40">30-40</option>
   <option value="40-50">40-50</option>
-  <option value=">50">>50</option>
+  <option value=">50">50</option>
 </select>
 
 
@@ -53,30 +75,7 @@
 		
 	
 	</body>
-<script>
 
-function sortProducts() {
-
-  var sortBy = document.getElementById("sort-by").value;
-  var sortbyprice=document.getElementById("sort-price").value;
-
-  var xhr = new XMLHttpRequest();
-
- 
-  xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("product-table").innerHTML = this.responseText;
-    }
-  };
-
-  xhr.open("GET", "sort.php?sort="+ sortby + "&sortprice="+ sortbyprice, true);
-
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-  xhr.send();
-}
-
-</script>
 	
 	</html>
 	
