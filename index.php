@@ -31,8 +31,8 @@
   <option value="desc" >Price(High to Low)</option>
   </select>
 
-  <select id="sort-price" name="sortprice" onchange="sortProducts">
-  <option>Select</option>
+  <select id="sort-price" name="sortprice" onchange="sortProducts()">
+  
   <option value="0-10">0-10</option>
   <option value="10-20">10-20</option>
   <option value="20-30">20-30</option>
@@ -69,7 +69,7 @@ function sortProducts() {
     }
   };
 
-  xhr.open("GET", "sort.php?sort=" + sortBy+ "&sortprice" +sortbyprice, true);
+  xhr.open("GET", "sort.php?sort="+ sortby + "&sortprice="+ sortbyprice, true);
 
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
