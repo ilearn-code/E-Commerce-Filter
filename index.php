@@ -27,8 +27,8 @@
  
   <select id="sort-by" name="sort" onchange="sortProducts()">
   <option value="default">Default</option>
-  <option value="asc" >Ascending</option>
-  <option value="desc" >Descending</option>
+  <option value="asc" >Price( Low to High)</option>
+  <option value="desc" >Price(High to Low)</option>
   </select>
 
 
