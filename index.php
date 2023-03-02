@@ -20,8 +20,8 @@ function sortProducts() {
       document.getElementById("product-table").innerHTML = this.responseText;
     }
   };
-
-  xhr.open("GET", "sort.php?sort="+sortBy+"&sortprice="+sortbyprice, true);
+console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
+  xhr.open("GET","sort.php?sort="+sortBy+"&sortprice="+sortbyprice, true);
 
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -55,12 +55,13 @@ function sortProducts() {
   </select>
 
   <select id="sort_price" name="sortprice" onchange="sortProducts()">
+  <option value="default"></option>
   <option value="1">0-10</option>
-  <option value="10-20">10-20</option>
-  <option value="20-30">20-30</option>
-  <option value="30-40">30-40</option>
-  <option value="40-50">40-50</option>
-  <option value=">50">50</option>
+  <option value="10">10-20</option>
+  <option value="20">20-30</option>
+  <option value="30">30-40</option>
+  <option value="40">40-50</option>
+ 
 </select>
 
 

@@ -3,34 +3,42 @@ require "db_conn.php";
 
    
 $sql = "SELECT * FROM product_table";
-$sortByPrice = $_GET['sortprice'];
-$sortBy = $_GET['sort'];
+
+
+
+
+
 
 if(isset($_GET['sortprice']))
 {
-
-$sortByPrice = $_GET['sortprice'];
-
-if($sortByPrice='1')
+  $sortByPrice= $_GET['sortprice'];
+if($sortByPrice=='1')
 {
-$sql.=" WHERE price>10";
+$sql.=" WHERE price>1 AND price<=10";
 }
-else if($sortByPrice='10-20')
+else if($sortByPrice=='10')
 {
 $sql.=" WHERE price>=10 AND price<=20";
 }
-else if($sortByPrice='20-30')
+else if($sortByPrice=='20')
 {
-$sql.=" WHERE price>20 AND price<=30";
+$sql.=" WHERE price>=20 AND price<=30";
 }
-else if($sortByPrice='30-40')
+else if($sortByPrice=='30')
 {
 $sql.=" WHERE price>30 AND price<=40";
 }
-else if($sortByPrice='40-50')
+else if($sortByPrice=='40')
 {
 $sql.=" WHERE price>40 AND price<=50";
 }
+
+else{
+  $sql.=" WHERE price>1 ";
+}
+}
+else{
+  $sql.=" WHERE price>1 ";
 }
 
 // $sortBy = $_GET['sort'];
@@ -48,14 +56,19 @@ $sql.=" WHERE price>40 AND price<=50";
 
 
 // else  if( isset( $_GET['sort'])){
- 
+  if(isset($_GET['sort']))
+  {
+  $sortBy = $_GET['sort'];
 if($sortBy == 'asc') {
   $sql.=" ORDER BY price ASC";
   
 } else if ($sortBy == 'desc'){
   $sql.=" ORDER BY price DESC";
 }
-
+else {
+  $sql.=" ORDER BY product_id ASC";
+}
+  }
 else {
   $sql.=" ORDER BY product_id ASC";
 }
