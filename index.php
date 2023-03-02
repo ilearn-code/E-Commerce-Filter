@@ -24,16 +24,13 @@
 			</form>
         <div class="filters" >
 
-
-      <!-- <form> -->
  
   <select id="sort-by" name="sort" onchange="sortProducts()">
   <option value="default">Default</option>
   <option value="asc" >Ascending</option>
   <option value="desc" >Descending</option>
   </select>
-  <!-- <input type="submit" value="Sort">
-     </form> -->
+
 
  </div>
 
