@@ -14,27 +14,26 @@
 			
 			<form method="POST" name="upfrm" action="uploadcode.php" enctype="multipart/form-data">
 				<div>
-					<input type="text" placeholder="Enter image name" name="product_name" class="tb" />
+					<label for="product_name">product name</label>
+					<input type="text" placeholder="Enter product name" name="product_name"  />
+					<label for="product_price">product price</label>
+					<input type="text" name="price" class="product_price"  placeholder="price">
 					<input type="file" name="fileImg" class="file_input" />
 					<input type="submit" value="Upload" name="btn_upload" class="btn" />
 				</div>
 			</form>
- <div class="filters" >
- <!-- <select id="sort-by" name="sort">
-  <option value="default" name="default">Default</option>
-  <option value="asc" name="asc">Ascending</option>
-  <option value="desc" name="desc">Descending</option>
-</select> -->
+        <div class="filters" >
 
-<form >
+
+      <!-- <form> -->
  
-  <select id="sort-by" name="sort">
-    <option value="default">Default</option>
+  <select id="sort-by" name="sort" onchange="sortProducts()">
+  <option value="default">Default</option>
   <option value="asc" >Ascending</option>
   <option value="desc" >Descending</option>
   </select>
-  <input type="submit" value="Sort">
-</form>
+  <!-- <input type="submit" value="Sort">
+     </form> -->
 
  </div>
 
@@ -46,30 +45,29 @@
 		
 	
 	</body>
+<script>
 
-	<script>
-create a new XHR object
-var xhr = new XMLHttpRequest();
+function sortProducts() {
 
-// define the function to be executed when the response is received
-xhr.onreadystatechange = function() {
-  if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-    // replace the content of the product table with the sorted data
-    document.getElementById("product_container <?php echo $product_name?>z[+").innerHTML = xhr.responseText;
-  }
-};
+  var sortBy = document.getElementById("sort-by").value;
 
-// define the sorting function and the sorting order
-function sortProducts(sortBy, sortOrder) {
-  // create the request URL with the sorting parameters
-  var url = "sort.php?sort_by=" + sortBy + "&sort_order=" + sortOrder;
+  var xhr = new XMLHttpRequest();
 
-  // send the request
-  xhr.open("GET", url, true);
+ 
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("product-table").innerHTML = this.responseText;
+    }
+  };
+
+  xhr.open("GET", "sort.php?sort=" + sortBy, true);
+
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
   xhr.send();
 }
 
-
-	</script>
+</script>
+	
 	</html>
 	

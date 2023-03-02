@@ -14,8 +14,8 @@ if ($sortBy == 'asc') {
 }
 } else {
 
-  $sortOrder = 'ASC'; // default sorting order
-  $orderBy = 'product_id'; // default sorting column
+  $sortOrder = 'ASC'; 
+  $orderBy = 'product_id'; 
 }
 
 $sql = "SELECT * FROM product_table ORDER BY $orderBy $sortOrder";

@@ -1,12 +1,12 @@
 <?php
 
-$hostname     = "localhost"; // enter your hostname
-$username     = "root";  // enter your table username
-$password     = "";   // enter your password
-$databasename = "grocery_db";  // enter your database
-// Create connection 
+$hostname     = "localhost"; 
+$username     = "root";  
+$password     = "";   
+$databasename = "grocery_db";  
+
 $conn = new mysqli($hostname, $username, $password,$databasename);
- // Check connection 
+
 if ($conn->connect_error) { 
 die("Unable to Connect database: " . $conn->connect_error);
  }
