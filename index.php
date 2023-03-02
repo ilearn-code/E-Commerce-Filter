@@ -47,15 +47,15 @@ console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
 			</form>
         <div class="filters" >
 
- 
-  <select id="sort_by" name="sort" onchange="sortProducts()">
+ <label for="sort_by">Sort by</label>
+  <select id="sort_by" class="sortBy" name="sort" onchange="sortProducts()">
   <option value="default">Default</option>
   <option value="asc" >Price( Low to High)</option>
   <option value="desc" >Price(High to Low)</option>
   </select>
-
+  <label for="sort_price">Price Range</label>
   <select id="sort_price" name="sortprice" onchange="sortProducts()">
-  <option value="default"></option>
+  <option value="default">All</option>
   <option value="1">0-10</option>
   <option value="10">10-20</option>
   <option value="20">20-30</option>
