@@ -2,23 +2,71 @@
 require "db_conn.php";
 
    
-if(isset($_GET['sort']))
+$sql = "SELECT * FROM product_table";
+
+
+if(isset($_GET['sortprice']))
 {
+
+$sortByPrice = $_GET['sortprice'];
+
+if($sortByPrice="0-10")
+{
+$sql.=" price<10";
+}
+else if($sortByPrice="10-20")
+{
+$sql.=" price>=10 AND price<=20";
+}
+else if($sortByPrice="20-30")
+{
+$sql.=" price>20 AND price<=30";
+}
+else if($sortByPrice="30-40")
+{
+$sql.=" price>30 AND price<=40";
+}
+else if($sortByPrice="40-50")
+{
+$sql.=" price>40 AND price<=50";
+}
+else{
+
+$sql.=" price>50";
+
+}
+
+if($sortBy == 'asc') {
+  $sql.=" ORDER BY price ASC";
+  
+} else if ($sortBy == 'dsc'){
+  $sql.=" ORDER BY price DSC";
+}
+
+else {
+  $sql.=" ORDER BY product_id ASC";
+}
+}
+
+else  if( isset( $_GET['sort'])){
   $sortBy = $_GET['sort'];
-if ($sortBy == 'asc') {
-  $sortOrder = 'ASC';
-  $orderBy = 'price';
-} else  {
-  $sortOrder = 'DESC';
-  $orderBy = 'price';
-}
-} else {
-
-  $sortOrder = 'ASC'; 
-  $orderBy = 'product_id'; 
+if($sortBy == 'asc') {
+  $sql.=" ORDER BY price ASC";
+  
+} else if ($sortBy == 'dsc'){
+  $sql.=" ORDER BY price DSC";
 }
 
-$sql = "SELECT * FROM product_table ORDER BY $orderBy $sortOrder";
+else {
+  $sql.=" ORDER BY product_id ASC";
+}
+  
+}
+
+else {
+  $sql.=" ORDER BY product_id ASC";
+}
+
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_array($result)) {
