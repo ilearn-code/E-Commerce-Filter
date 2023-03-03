@@ -4,11 +4,6 @@ require "db_conn.php";
    
 $sql = "SELECT * FROM product_table";
 
-
-
-
-
-
 if(isset($_GET['sortprice']))
 {
   $sortByPrice= $_GET['sortprice'];
@@ -41,21 +36,7 @@ else{
   $sql.=" WHERE price>1 ";
 }
 
-// $sortBy = $_GET['sort'];
 
-// if($sortBy == 'asc') {
-//   $sql.=" ORDER BY price ASC";
-  
-// } else if ($sortBy == 'desc'){
-//   $sql.=" ORDER BY price DESC";
-// }
-
-// else {
-//   $sql.=" ORDER BY product_id ASC";
-// }
-
-
-// else  if( isset( $_GET['sort'])){
   if(isset($_GET['sort']))
   {
   $sortBy = $_GET['sort'];
@@ -73,11 +54,7 @@ else {
   $sql.=" ORDER BY product_id ASC";
 }
   
-// }
 
-// else {
-//   $sql.=" ORDER BY product_id ASC";
-// }
 
 $result = mysqli_query($conn, $sql);
 
