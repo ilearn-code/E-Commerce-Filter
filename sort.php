@@ -1,9 +1,14 @@
 <?php
 require "db_conn.php";
-$minPrice = isset($_GET['minprice']) ? $_GET['minprice'] : 0;
+$minPrice = isset($_GET['minprice']) ? $_GET['minprice'] : 1;
 $maxPrice = isset($_GET['maxprice']) ? $_GET['maxprice'] : 999999999;
-   
-$sql = "SELECT * FROM product_table  WHERE price BETWEEN '$minPrice' AND '$maxPrice' ";
+
+$sql = "SELECT * FROM product_table";
+
+if (!empty($minPrice) && !empty($maxPrice)) {
+  $sql .= " WHERE price BETWEEN $minPrice AND $maxPrice";
+}
+
 // f(isset($minPrice)==false &&isset($maxPrice)== false)
 // {
 //   $sql .= " WHERE price BETWEEN {$minPrice} AND {$maxPrice}";
@@ -41,8 +46,7 @@ $sql = "SELECT * FROM product_table  WHERE price BETWEEN '$minPrice' AND '$maxPr
 //   $sql.=" WHERE price>1 ";
 // }
 
-
-  if(isset($_GET['sort']))
+if(isset($_GET['sort']))
   {
   $sortBy = $_GET['sort'];
 if($sortBy == 'asc') {
@@ -54,11 +58,11 @@ if($sortBy == 'asc') {
 else {
   $sql.=" ORDER BY product_id ASC";
 }
-  }
+}
 else {
   $sql.=" ORDER BY product_id ASC";
 }
-  
+
 
 
 $result = mysqli_query($conn, $sql);
@@ -76,5 +80,5 @@ while($row = mysqli_fetch_array($result)) {
 
     <?php
 }
-
+echo $minPrice;
 ?>

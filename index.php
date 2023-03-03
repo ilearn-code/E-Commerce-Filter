@@ -30,7 +30,7 @@ console.log("sort.php?sort="+sortBy+"&minprice="+minprice+"&maxprice="+maxprice)
 
   xhr.send();
 }
-
+setInterval(sortProducts(), 20000);
 </script>
 	</head>
 
@@ -68,17 +68,15 @@ console.log("sort.php?sort="+sortBy+"&minprice="+minprice+"&maxprice="+maxprice)
 			
 			
         <div class="filters" >
-
  <label for="sort_by">Sort by</label>
-  <select id="sort_by" class="sortBy" name="sort" onclick="sortProducts()">
+  <select id="sort_by" class="sortBy" name="sort" onchange="sortProducts()">
   <option value="default">Default</option>
   <option value="asc" >Price( Low to High)</option>
   <option value="desc" >Price(High to Low)</option>
   </select>
-<input type="text"  id="minprice" name="minprice" placeholder="min" onclick="sortProducts()" >
-<input type="text"  id="maxprice" name="maxprice"placeholder="max"  onclick="sortProducts()" >
-<!-- <button type="submit" onclick="sortProducts(event)">Sort</button> -->
-
+ 
+<input type="text"  id="minprice" name="minprice" placeholder="min" onchange="sortProducts()" >
+<input type="text"  id="maxprice" name="maxprice" placeholder="max"  onchange="sortProducts()" >
 
 
  </div>
