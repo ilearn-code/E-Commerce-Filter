@@ -26,11 +26,13 @@ console.log("sort.php?sort="+sortBy+"&minprice="+minprice+"&maxprice="+maxprice)
 
   xhr.open("GET","sort.php?sort="+sortBy+"&minprice="+minprice+"&maxprice="+maxprice, true);
 
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
   xhr.send();
 }
-setInterval(sortProducts(), 20000);
+document.getElementById("sort_by").addEventListener("change", sortProducts);
+document.getElementById("minprice").addEventListener("input", sortProducts);
+document.getElementById("maxprice").addEventListener("input", sortProducts);
 </script>
 	</head>
 
@@ -76,7 +78,7 @@ setInterval(sortProducts(), 20000);
   </select>
 
  <label for="rangeinp">Range</label>
-<input type="text" class="rangeinp" id="minprice" name="minprice" placeholder="min" onchange="sortProducts()" required >
+<input type="text" class="rangeinp" id="minprice" name="minprice" placeholder="min" value="1" onchange="sortProducts()" required >
 <input type="text" class="rangeinp" id="maxprice" name="maxprice" placeholder="max" value="99999" onchange="sortProducts()" required>
 
 

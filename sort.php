@@ -1,7 +1,7 @@
 <?php
 require "db_conn.php";
-$minPrice = isset($_GET['minprice']) ? $_GET['minprice'] : 1;
-$maxPrice = isset($_GET['maxprice']) ? $_GET['maxprice'] : 999999999;
+$minPrice = isset($_GET['minprice'])? $_GET['minprice'] : 1;
+$maxPrice =  isset($_GET['maxprice'])? $_GET['maxprice'] : 999999999;
 
 $sql = "SELECT * FROM product_table";
 
