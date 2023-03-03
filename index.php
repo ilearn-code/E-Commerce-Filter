@@ -50,7 +50,8 @@ console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
           <br>
 					<label for="product_price">product price</label><input type="text" name="price" class="product_price"  placeholder="price">
           <br>
-					<input type="file" name="fileImg" class="file_input" />
+          <br>
+					<label for="file_input">Product Image</label><input type="file" name="fileImg" class="file_input" />
           <br>
 					<input type="submit" value="Upload" name="btn_upload" class="btn" />
 				</div>

@@ -105,10 +105,15 @@ input.product_price {
   margin-top: 20px;
 }
 input.btn {
+  height: 40px;
+  width: 70px;
   margin-left: 90px;
-  margin-top: 20px;
+  margin-top: 30px;
+  background-color: #4caf50;
+  border:none ;
+  cursor: pointer;
 }
 input.file_input {
   margin-left: 109.5px;
-  margin-top: 20px;
+  margin-top: -20px;
 }
