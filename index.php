@@ -78,8 +78,8 @@ document.getElementById("maxprice").addEventListener("input", sortProducts);
   </select>
 
  <label for="rangeinp">Range</label>
-<input type="text" class="rangeinp" id="minprice" name="minprice" placeholder="min" value="1" onchange="sortProducts()" required >
-<input type="text" class="rangeinp" id="maxprice" name="maxprice" placeholder="max" value="99999" onchange="sortProducts()" required>
+<input type="number"class="rangeinp" id="minprice" name="minprice" placeholder="min" value="1" onchange="sortProducts()" required >
+<input type="number" class="rangeinp" id="maxprice" name="maxprice" placeholder="max" value="99999" onchange="sortProducts()" required>
 
 
  </div>
