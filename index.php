@@ -40,20 +40,25 @@ console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
        
  <div id="popup_container">    
 <div id="popup">
-<form method="POST" name="upfrm" action="uploadcode.php" enctype="multipart/form-data">
+<button class="hidebtn" onclick="hidePopup()"><i class="uil uil-times-circle"></i></button>  
+  <div class="upload_form">
+
+  <form method="POST" name="upfrm" action="uploadcode.php" enctype="multipart/form-data">
 				<div>
-        <button class="hidebtn" onclick="hidePopup()"><i class="uil uil-times-circle"></i></button>   
-					<label for="product_name">product name</label>
-					<input type="text" placeholder="Enter product name" name="product_name"  />
+         
+					<label for="product_name">product name</label><input type="text" class="product_name" placeholder="Enter product name" name="product_name"  />
           <br>
-					<label for="product_price">product price</label>
-					<input type="text" name="price" class="product_price"  placeholder="price">
+					<label for="product_price">product price</label><input type="text" name="price" class="product_price"  placeholder="price">
           <br>
 					<input type="file" name="fileImg" class="file_input" />
           <br>
 					<input type="submit" value="Upload" name="btn_upload" class="btn" />
 				</div>
-			</form>    
+			</form>
+
+
+  </div>
+    
  
 </div> 
  </div> 
