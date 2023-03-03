@@ -74,9 +74,10 @@ setInterval(sortProducts(), 20000);
   <option value="asc" >Price( Low to High)</option>
   <option value="desc" >Price(High to Low)</option>
   </select>
- 
-<input type="text"  id="minprice" name="minprice" placeholder="min" onchange="sortProducts()" >
-<input type="text"  id="maxprice" name="maxprice" placeholder="max"  onchange="sortProducts()" >
+
+ <label for="rangeinp">Range</label>
+<input type="text" class="rangeinp" id="minprice" name="minprice" placeholder="min" onchange="sortProducts()" required >
+<input type="text" class="rangeinp" id="maxprice" name="maxprice" placeholder="max" value="99999" onchange="sortProducts()" required>
 
 
  </div>
