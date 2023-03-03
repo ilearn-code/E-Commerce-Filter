@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, intial-scale=1.0"/>
 	<link rel="stylesheet" href="css\style.css">
 	<title>Grocery product</title>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 	<script>
 
 function sortProducts() {
@@ -32,19 +33,32 @@ console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
 	</head>
 
 	<body>
-
-		
-			
-			<form method="POST" name="upfrm" action="uploadcode.php" enctype="multipart/form-data">
+<div class="header">
+<button class="addpbutton" onclick="showPopup()">Add Product</button> 
+</div>
+    
+       
+ <div id="popup_container">    
+<div id="popup">
+<form method="POST" name="upfrm" action="uploadcode.php" enctype="multipart/form-data">
 				<div>
+        <button class="hidebtn" onclick="hidePopup()"><i class="uil uil-times-circle"></i></button>   
 					<label for="product_name">product name</label>
 					<input type="text" placeholder="Enter product name" name="product_name"  />
+          <br>
 					<label for="product_price">product price</label>
 					<input type="text" name="price" class="product_price"  placeholder="price">
+          <br>
 					<input type="file" name="fileImg" class="file_input" />
+          <br>
 					<input type="submit" value="Upload" name="btn_upload" class="btn" />
 				</div>
-			</form>
+			</form>    
+ 
+</div> 
+ </div> 
+			
+			
         <div class="filters" >
 
  <label for="sort_by">Sort by</label>
@@ -76,7 +90,21 @@ console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
 		
 	
 	</body>
+<script>
 
+function hidePopup(){
+
+document.getElementById("popup_container").style.display="none";
+}
+
+  function showPopup(){
+
+    document.getElementById("popup_container").style.display="block";
+  }
+
+  
+ 
+</script>
 	
 	</html>
 	

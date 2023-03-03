@@ -1,3 +1,62 @@
+.header
+{
+  height: 50px;
+  width:100%;
+  background-color: black;
+}
+.addpbutton
+{
+  float: right;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.hidebtn{
+  float: right;
+  height: 30px;
+  width: 50px;
+  background-color: none;
+  font-size: 30px;
+border: none;
+background-color: bisque;
+cursor: pointer;
+}
+
+
+#popup_container
+{
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background : rgba(50,50,50,0.5);
+  top: 0;
+  color: black;
+
+}
+#popup
+{
+  background :bisque;      
+  width : 400px;      
+  height : 300px;      
+  margin : 150px auto;   
+}
+
+
+.filters
+{
+  display: flex;
+  justify-content: center;
+  background-color: bisque;
+ 
+}
+/* .sort_by
+{
+ 
+  height: 20px;
+  width: 50px;
+} */
+
+
 
 
 .product_container
