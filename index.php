@@ -11,7 +11,8 @@
 function sortProducts() {
 
   var sortBy = document.getElementById("sort_by").value;
-  var sortbyprice=document.getElementById("sort_price").value;
+  var minprice=document.getElementById("minprice").value;
+   var maxprice=document.getElementById("maxprice").value;
 
   var xhr = new XMLHttpRequest();
 
@@ -21,8 +22,9 @@ function sortProducts() {
       document.getElementById("product-table").innerHTML = this.responseText;
     }
   };
-console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
-  xhr.open("GET","sort.php?sort="+sortBy+"&sortprice="+sortbyprice, true);
+console.log("sort.php?sort="+sortBy+"&minprice="+minprice+"&maxprice="+maxprice);
+
+  xhr.open("GET","sort.php?sort="+sortBy+"&minprice="+minprice+"&maxprice="+maxprice, true);
 
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
@@ -68,21 +70,14 @@ console.log("sort.php?sort="+sortBy+"&sortprice="+sortbyprice);
         <div class="filters" >
 
  <label for="sort_by">Sort by</label>
-  <select id="sort_by" class="sortBy" name="sort" onchange="sortProducts()">
+  <select id="sort_by" class="sortBy" name="sort" onclick="sortProducts()">
   <option value="default">Default</option>
   <option value="asc" >Price( Low to High)</option>
   <option value="desc" >Price(High to Low)</option>
   </select>
-  <label for="sort_price">Price Range</label>
-  <select id="sort_price" name="sortprice" onchange="sortProducts()">
-  <option value="default">All</option>
-  <option value="1">0-10</option>
-  <option value="10">10-20</option>
-  <option value="20">20-30</option>
-  <option value="30">30-40</option>
-  <option value="40">40-50</option>
- 
-</select>
+<input type="text"  id="minprice" name="minprice" placeholder="min" onclick="sortProducts()" >
+<input type="text"  id="maxprice" name="maxprice"placeholder="max"  onclick="sortProducts()" >
+<!-- <button type="submit" onclick="sortProducts(event)">Sort</button> -->
 
 
 

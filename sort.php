@@ -1,40 +1,45 @@
 <?php
 require "db_conn.php";
-
+$minPrice = isset($_GET['minprice']) ? $_GET['minprice'] : 0;
+$maxPrice = isset($_GET['maxprice']) ? $_GET['maxprice'] : 999999999;
    
-$sql = "SELECT * FROM product_table";
+$sql = "SELECT * FROM product_table  WHERE price BETWEEN '$minPrice' AND '$maxPrice' ";
+// f(isset($minPrice)==false &&isset($maxPrice)== false)
+// {
+//   $sql .= " WHERE price BETWEEN {$minPrice} AND {$maxPrice}";
+// }i
 
-if(isset($_GET['sortprice']))
-{
-  $sortByPrice= $_GET['sortprice'];
-if($sortByPrice=='1')
-{
-$sql.=" WHERE price>1 AND price<=10";
-}
-else if($sortByPrice=='10')
-{
-$sql.=" WHERE price>=10 AND price<=20";
-}
-else if($sortByPrice=='20')
-{
-$sql.=" WHERE price>=20 AND price<=30";
-}
-else if($sortByPrice=='30')
-{
-$sql.=" WHERE price>30 AND price<=40";
-}
-else if($sortByPrice=='40')
-{
-$sql.=" WHERE price>40 AND price<=50";
-}
+// if(isset($_GET['sortprice']))
+// {
+//   $sortByPrice= $_GET['sortprice'];
+// if($sortByPrice=='1')
+// {
+// $sql.=" WHERE price>1 AND price<=10";
+// }
+// else if($sortByPrice=='10')
+// {
+// $sql.=" WHERE price>=10 AND price<=20";
+// }
+// else if($sortByPrice=='20')
+// {
+// $sql.=" WHERE price>=20 AND price<=30";
+// }
+// else if($sortByPrice=='30')
+// {
+// $sql.=" WHERE price>30 AND price<=40";
+// }
+// else if($sortByPrice=='40')
+// {
+// $sql.=" WHERE price>40 AND price<=50";
+// }
 
-else{
-  $sql.=" WHERE price>1 ";
-}
-}
-else{
-  $sql.=" WHERE price>1 ";
-}
+// else{
+//   $sql.=" WHERE price>1 ";
+// }
+// }
+// else{
+//   $sql.=" WHERE price>1 ";
+// }
 
 
   if(isset($_GET['sort']))
@@ -71,4 +76,5 @@ while($row = mysqli_fetch_array($result)) {
 
     <?php
 }
+
 ?>
