@@ -1,7 +1,9 @@
 # grocery_project
 
 • It Insert product Image , Price and Name into Database
+
 • It shows it using AJAX using xmlhttp Rquest
+
 • It sort as well as gives option to set range of products
 
 <img src="projectscreenshots/1.png"  >
