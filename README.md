@@ -16,8 +16,3 @@
 <img src="projectscreenshots/8.png"  >
 <img src="projectscreenshots/9.png"  >
 <img src="projectscreenshots/10.png"  >
-<img src="projectscreenshots/11.png"  >
-<img src="projectscreenshots/12.png"  >
-<img src="projectscreenshots/13.png"  >
-<img src="projectscreenshots/14.png"  >
-<img src="projectscreenshots/15.png"  >
